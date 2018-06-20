@@ -26,7 +26,7 @@ class Pawn: UIChessPiece {
         
         self.isOpaque = false // draw pawn on top board
         self.textColor = color // color of chess piece symbol
-        self.isUserInteractionEnabled = true // let user drag drog piece on screen
+        self.isUserInteractionEnabled = true // let user drag piece on screen
         self.textAlignment = .center // chess piece centered
         self.font = self.font.withSize(36)
         

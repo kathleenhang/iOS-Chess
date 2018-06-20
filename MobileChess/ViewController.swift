@@ -47,7 +47,6 @@ class ViewController: UIViewController {
         
         pieceDragged = touches.first!.view as? UIChessPiece // drag if its a chess piece
         
-        
        
         if pieceDragged != nil{ // if we have a valid chess piece
             sourceOrigin = pieceDragged.frame.origin  // make piece go back where it was if user drags to invalid location
@@ -86,21 +85,28 @@ class ViewController: UIViewController {
             // set destination origin
             destOrigin = CGPoint(x: x, y: y)
             
-            let sourceIndex = BoardIndex(row: 0, col: 0)
-            let destIndex = BoardIndex(row: 0, col: 0)
+            let sourceIndex = ChessBoard.indexOf(origin: sourceOrigin)
+            let destIndex = ChessBoard.indexOf(origin: destOrigin)
             
             // move to destination if valid. if not then move back to original location
             if myChessGame.isMoveValid(piece: pieceDragged, fromIndex: sourceIndex, toIndex: destIndex){
-                pieceDragged.frame.origin = destOrigin
+                
+                myChessGame.move(piece: pieceDragged, fromIndex: sourceIndex, toIndex: destIndex, toOrigin: destOrigin)
+                
+                myChessGame.nextTurn()
+                updateTurnOnScreen()
             }
             else{
                 pieceDragged.frame.origin = sourceOrigin
             }
-            
-            
-            
-            
+  
         }
+        
+    }
+    
+    func updateTurnOnScreen(){
+        lblDisplayTurnOUTLET.text = myChessGame.isWhiteTurn ? "White's turn": "Black's turn"
+        lblDisplayTurnOUTLET.textColor = myChessGame.isWhiteTurn ? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) : #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         
     }
 
