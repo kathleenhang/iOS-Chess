@@ -35,6 +35,23 @@ class Queen: UIChessPiece {
         
         
     }
+    
+    func doesMoveSeemFine(fromIndex source: BoardIndex, toIndex dest: BoardIndex) -> Bool{
+        
+        // rook check
+        if source.row == dest.row || source.col == dest.col{
+            return true
+        }
+        
+        // bishop check
+        if abs(dest.row - source.row) == abs(dest.col - source.col){
+            return true
+        }
+        
+        return false
+        
+    }
+    
     // needed in order to instantiate the frame and pawn
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!

@@ -35,6 +35,32 @@ class Knight: UIChessPiece {
         
     }
     
+    
+    
+    func doesMoveSeemFine(fromIndex source: BoardIndex, toIndex dest: BoardIndex) -> Bool{
+        
+        let validMoves = [(source.row - 1, source.col + 2), (source.row - 2, source.col + 1), (source.row - 2, source.col - 1), (source.row - 1, source.col - 2), (source.row + 1, source.col - 2), (source.row + 2, source.col - 1), (source.row + 2, source.col + 1), (source.row + 1, source.col + 2)]
+        
+        for(validRow, validCol) in validMoves{
+           if dest.row == validRow && dest.col == validCol{
+                return true
+            }
+        }
+        
+        return false
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     // needed in order to instantiate the frame and pawn
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!

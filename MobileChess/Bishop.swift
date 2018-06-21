@@ -35,6 +35,31 @@ class Bishop: UIChessPiece {
         
         
     }
+    
+    func doesMoveSeemFine(fromIndex source: BoardIndex, toIndex dest: BoardIndex) -> Bool{
+        
+        // difference of rows, difference of columns
+        // pattern: absolute value is always the same
+        
+        //-1, -1
+        // 1, 1
+        // 1, -1
+        //-1, 1
+        
+        //-2,-2
+        // 2, 2
+        // 2, -2
+        //-2, 2
+        
+        if abs(dest.row - source.row) == abs(dest.col - source.col){
+            return true
+        }
+
+        
+        return false
+        
+    }
+    
     // needed in order to instantiate the frame and pawn
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!

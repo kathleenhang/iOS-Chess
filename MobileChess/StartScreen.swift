@@ -6,4 +6,7 @@
 //  Copyright © 2018 Team Cowdog. All rights reserved.
 //
 
-import Foundation
+import UIKit
+class StartScreen: UIViewController {
+    
+}
