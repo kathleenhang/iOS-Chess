@@ -417,7 +417,7 @@
                         <outlet property="lblDisplayCheckOUTLET" destination="Hif-ch-LFX" id="UaN-hh-2nO"/>
                         <outlet property="lblDisplayTurnOUTLET" destination="LpH-4k-UfC" id="pzJ-Im-yFg"/>
                         <outlet property="panOUTLET" destination="fFi-J6-wdD" id="o3q-e9-xhZ"/>
-                        <segue destination="sJ5-23-KeZ" kind="unwind" unwindAction="unwindWithSegue:" id="kEb-rj-Arh"/>
+                        <segue destination="sJ5-23-KeZ" kind="unwind" identifier="backToMainMenu" unwindAction="unwindWithSegue:" id="wOw-TJ-Hdn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -428,6 +428,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ZKl-a2-Qv7"/>
+        <segue reference="deh-8C-I19"/>
     </inferredMetricsTieBreakers>
 </document>

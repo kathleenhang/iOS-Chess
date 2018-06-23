@@ -95,7 +95,16 @@ class ViewController: UIViewController {
                 
                 myChessGame.move(piece: pieceDragged, fromIndex: sourceIndex, toIndex: destIndex, toOrigin: destOrigin)
                 
+                // check if game is over
+                if myChessGame.isGameOver(){
+                    displayWinner()
+                    return
+                }
+                
                 myChessGame.nextTurn()
+                
+                
+                
                 updateTurnOnScreen()
             }
             else{
@@ -104,6 +113,33 @@ class ViewController: UIViewController {
   
         }
         
+    }
+    
+    func displayWinner(){
+        let box = UIAlertController(title: "Game Over", message: "\(myChessGame.winner!) wins", preferredStyle: UIAlertControllerStyle.alert)
+        box.addAction(UIAlertAction(title: "Back to main menu", style: UIAlertActionStyle.default, handler: {
+            action in self.performSegue(withIdentifier: "backToMainMenu", sender: self)
+        }))
+        
+        box.addAction(UIAlertAction(title: "Rematch", style: UIAlertActionStyle.default, handler: {
+        action in
+            
+            // clear screen, chess pieces array, and board matrix
+            for chessPiece in self.chessPieces{
+                // remove all pieces from the board
+                self.myChessGame.theChessBoard.remove(piece: chessPiece)
+            }
+            
+            // create new game
+            // when you initialize new game, you reset board with new chess pieces
+            self.myChessGame = ChessGame(viewController: self)
+            
+            // update labels with game status
+            self.updateTurnOnScreen()
+            self.lblDisplayTurnOUTLET.text = nil
+  
+        }))
+        self.present(box, animated: true, completion: nil)
     }
     
     func updateTurnOnScreen(){

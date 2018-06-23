@@ -13,7 +13,7 @@ import UIKit
 class ChessGame: NSObject {
     var theChessBoard: ChessBoard!
     var isWhiteTurn = true
-    
+    var winner: String?
     
     // creates chessboard for this chess game
     init(viewController: ViewController) {
@@ -21,6 +21,32 @@ class ChessGame: NSObject {
         theChessBoard = ChessBoard.init(viewController: viewController)
         
     }
+    
+    
+    func isGameOver() -> Bool{
+        
+        if didSomebodyWin(){
+            return true
+        }
+        return false
+        
+    }
+    
+    func didSomebodyWin() -> Bool{
+        if !theChessBoard.vc.chessPieces.contains(theChessBoard.whiteKing){
+            winner = "Black"
+            return true
+        }
+        
+        if !theChessBoard.vc.chessPieces.contains(theChessBoard.blackKing){
+            winner = "White"
+            return true
+        }
+        
+        return false
+    }
+    
+    
     
     func move(piece chessPieceToMove: UIChessPiece, fromIndex sourceIndex: BoardIndex, toIndex destIndex: BoardIndex, toOrigin destOrigin: CGPoint){
         
