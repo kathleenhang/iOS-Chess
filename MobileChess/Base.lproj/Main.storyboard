@@ -36,6 +36,9 @@
                                 <state key="normal" title="Single player">
                                     <color key="titleColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="singleplayer" id="deh-8C-I19"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Owh-BZ-8ft">
                                 <rect key="frame" x="16" y="271" width="288" height="75"/>
@@ -45,6 +48,9 @@
                                 <state key="normal" title="Multiplayer">
                                     <color key="titleColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="multiplayer" id="ZKl-a2-Qv7"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -411,12 +417,17 @@
                         <outlet property="lblDisplayCheckOUTLET" destination="Hif-ch-LFX" id="UaN-hh-2nO"/>
                         <outlet property="lblDisplayTurnOUTLET" destination="LpH-4k-UfC" id="pzJ-Im-yFg"/>
                         <outlet property="panOUTLET" destination="fFi-J6-wdD" id="o3q-e9-xhZ"/>
+                        <segue destination="sJ5-23-KeZ" kind="unwind" unwindAction="unwindWithSegue:" id="kEb-rj-Arh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="sJ5-23-KeZ" userLabel="Exit" sceneMemberID="exit"/>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="fFi-J6-wdD"/>
             </objects>
             <point key="canvasLocation" x="24.375" y="40.140845070422536"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ZKl-a2-Qv7"/>
+    </inferredMetricsTieBreakers>
 </document>

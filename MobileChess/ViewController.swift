@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     static var TILE_SIZE: Int = 38
     var myChessGame: ChessGame! // chess match
     var chessPieces: [UIChessPiece]! // array of chess pieces
-    
+    var isAgainstAI: Bool!
     
     
     
@@ -36,8 +36,10 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         chessPieces = [] // empty array
-        myChessGame = ChessGame.init(viewController: self) // self = current vc
         
+        
+        myChessGame = ChessGame.init(viewController: self) // self = current vc
+        print("SINGLEPLAYER: \(isAgainstAI)")
         
     }
     
