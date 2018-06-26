@@ -117,7 +117,10 @@ class ViewController: UIViewController {
     
     func displayWinner(){
         let box = UIAlertController(title: "Game Over", message: "\(myChessGame.winner!) wins", preferredStyle: UIAlertControllerStyle.alert)
+        
         box.addAction(UIAlertAction(title: "Back to main menu", style: UIAlertActionStyle.default, handler: {
+            
+            // set up unwind segue manually
             action in self.performSegue(withIdentifier: "backToMainMenu", sender: self)
         }))
         
@@ -136,7 +139,7 @@ class ViewController: UIViewController {
             
             // update labels with game status
             self.updateTurnOnScreen()
-            self.lblDisplayTurnOUTLET.text = nil
+            self.lblDisplayCheckOUTLET.text = nil
   
         }))
         self.present(box, animated: true, completion: nil)

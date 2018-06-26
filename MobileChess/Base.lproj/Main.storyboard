@@ -58,12 +58,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xgx-8s-IIj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-811.875" y="66.549295774647888"/>
+            <point key="canvasLocation" x="-1080" y="67"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MobileChess" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MobileChess" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -424,7 +424,7 @@
                 <exit id="sJ5-23-KeZ" userLabel="Exit" sceneMemberID="exit"/>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="fFi-J6-wdD"/>
             </objects>
-            <point key="canvasLocation" x="24.375" y="40.140845070422536"/>
+            <point key="canvasLocation" x="-26" y="67"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
