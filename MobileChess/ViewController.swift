@@ -95,11 +95,20 @@ class ViewController: UIViewController {
                 
                 myChessGame.move(piece: pieceDragged, fromIndex: sourceIndex, toIndex: destIndex, toOrigin: destOrigin)
                 
+               
+                
                 // check if game is over
                 if myChessGame.isGameOver(){
                     displayWinner()
                     return
                 }
+                
+                
+                
+                
+                 // if a move is made..
+                
+                displayCheck()
                 
                 myChessGame.nextTurn()
                 
@@ -113,6 +122,16 @@ class ViewController: UIViewController {
   
         }
         
+    }
+    func displayCheck(){
+        let playerChecked = myChessGame.getPlayerChecked()
+        if playerChecked != nil{
+            lblDisplayCheckOUTLET.text = playerChecked! + "is in check!"
+        }
+        else{
+            // no player is checked
+            lblDisplayCheckOUTLET.text = nil
+        }
     }
     
     func displayWinner(){

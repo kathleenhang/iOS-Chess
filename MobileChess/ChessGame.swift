@@ -23,6 +23,53 @@ class ChessGame: NSObject {
     }
     
     
+    func getPlayerChecked() -> String?{
+        
+        // guard tries to unwrap optional if it can. if successful then statements will be executed. guard = constant available outside block as well
+        
+        // if that piece is not on the board, then the player has lost already, so return nil
+        
+        guard let whiteKingIndex = theChessBoard.getIndex(forChessPiece: theChessBoard.whiteKing) else {
+            return nil
+        }
+        
+        guard let blackKingIndex = theChessBoard.getIndex(forChessPiece: theChessBoard.blackKing) else {
+            return nil
+        }
+        
+        
+        // iterate through each piece
+        for row in 0..<theChessBoard.ROWS{
+            for col in 0..<theChessBoard.COLS{
+                if let chessPiece = theChessBoard.board[row][col] as? UIChessPiece{
+                    
+                    let chessPieceIndex = BoardIndex(row: row, col: col)
+                    
+                    
+                    // can that black piece attack our white king?
+                    // if it can, that means white king is in check
+                    if chessPiece.color == #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1){
+                        if isNormalMoveValid(forPiece: chessPiece, fromIndex: chessPieceIndex, toIndex: whiteKingIndex){
+                            return "White"
+                        }
+                        else{
+                            if isNormalMoveValid(forPiece: chessPiece, fromIndex: chessPieceIndex, toIndex: blackKingIndex){
+                                return "Black"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        // if white and black are not under check, none is checked
+        return nil
+        
+    }
+    
+    
+    
+    
+    
     func isGameOver() -> Bool{
         
         if didSomebodyWin(){
