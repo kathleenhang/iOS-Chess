@@ -104,17 +104,24 @@ class ViewController: UIViewController {
                 }
                 
                 
+                if shouldPromotePawn(){
+                    promptForPawnPromotion()
+                }
+                else{
+                    resumeGame()
+                    
+                    
+                    
+                    
+                    
+              
+                }
                 
                 
-                 // if a move is made..
-                
-                displayCheck()
-                
-                myChessGame.nextTurn()
                 
                 
                 
-                updateTurnOnScreen()
+           
             }
             else{
                 pieceDragged.frame.origin = sourceOrigin
@@ -123,6 +130,69 @@ class ViewController: UIViewController {
         }
         
     }
+    
+    func resumeGame(){
+        
+        // if a move is made..
+        
+        displayCheck()
+        // change the turn
+        myChessGame.nextTurn()
+        
+        
+        // display turn on screen
+        updateTurnOnScreen()
+        
+        // make AI move, if necessary
+        if isAgainstAI == true && !myChessGame.isWhiteTurn{
+            
+            myChessGame.makeAIMove()
+            if myChessGame.isGameOver(){
+                displayWinner()
+                return
+            }
+            
+            if shouldPromotePawn(){
+                promote(pawn: myChessGame.getPawnToBePromoted()!, into: "Queen")
+                
+            }
+            
+            displayCheck()
+            
+            myChessGame.nextTurn()
+            
+            updateTurnOnScreen()
+            
+        }
+        
+    }
+    
+    
+    
+    func promote(pawn pawnToBePromoted: Pawn, into option: String){
+        
+        
+    }
+    
+    func promptForPawnPromotion(){
+        
+    }
+    
+    
+    func shouldPromotePawn() -> Bool{
+        return (myChessGame.getPawnToBePromoted() != nil)
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     func displayCheck(){
         let playerChecked = myChessGame.getPlayerChecked()
         if playerChecked != nil{

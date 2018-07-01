@@ -22,6 +22,27 @@ class ChessGame: NSObject {
         
     }
     
+    func makeAIMove(){
+        
+    }
+    
+    func getPawnToBePromoted() -> Pawn?{
+        for chessPiece in theChessBoard.vc.chessPieces{
+            if let pawn = chessPiece as? Pawn{
+                let pawnIndex = ChessBoard.indexOf(origin: pawn.frame.origin)
+                if pawnIndex.row == 0 || pawnIndex.row == 7{
+                    return pawn
+                }
+            }
+        }
+        
+        return nil
+    }
+    
+    
+    
+    
+    
     
     func getPlayerChecked() -> String?{
         
