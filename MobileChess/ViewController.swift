@@ -200,7 +200,37 @@ class ViewController: UIViewController {
         if let pawnToPromote = myChessGame.getPawnToBePromoted(){
             
             let box = UIAlertController(title: "Pawn promotion", message: "Choose piece", preferredStyle: UIAlertControllerStyle.alert)
-            box.addAction(UIAlertAction(title: "Queen", style: UIAlertActionStyle.default, handler: { action in self.promote(pawn: pawnToPromote, into: action.title!)))
+            
+            box.addAction(UIAlertAction(title: "Queen", style: UIAlertActionStyle.default, handler: { action in
+                self.promote(pawn: pawnToPromote, into: action.title!)
+                
+                self.resumeGame()
+            }))
+            
+            
+            box.addAction(UIAlertAction(title: "Knight", style: UIAlertActionStyle.default, handler: { action in
+                self.promote(pawn: pawnToPromote, into: action.title!)
+                
+                self.resumeGame()
+            }))
+            
+            box.addAction(UIAlertAction(title: "Rook", style: UIAlertActionStyle.default, handler: { action in
+                self.promote(pawn: pawnToPromote, into: action.title!)
+                
+                self.resumeGame()
+            }))
+            
+            box.addAction(UIAlertAction(title: "Bishop", style: UIAlertActionStyle.default, handler: { action in
+                self.promote(pawn: pawnToPromote, into: action.title!)
+                
+                self.resumeGame()
+            }))
+            
+            self.present(box, animated: true, completion: nil)
+            
+            
+            
+            
         }
         
     }
